@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>生日祝福</title>
+  <title>Happy Birthday To You :)</title>
   <link rel="icon" href="favicon.ico" />
   <style>
     body {
@@ -34,6 +34,19 @@
       cursor: pointer;
       z-index: 100;
     }
+    .egg-char {
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff0080, #ff8c00, #ffd500, #00e676, #00b0ff, #7c4dff, #ff0080);
+      background-size: 400% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: rainbow-move 2.5s linear infinite;
+    }
+    @keyframes rainbow-move {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
     canvas {
       position: absolute;
       top: 0;
@@ -47,10 +60,10 @@
   <canvas id="fireworks"></canvas>
 
   <script>
-    const colors = ["orange", "yellow", "green", "blue", "purple"];
+    const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
     const btn = document.getElementById("egg-btn");
 
-    btn.innerHTML = `<span style="color:${colors[Math.floor(Math.random()*colors.length)]}">彩</span><span style="color:${colors[Math.floor(Math.random()*colors.length)]}">蛋</span>`;
+    btn.innerHTML = `<span class="egg-char">彩</span><span class="egg-char">蛋</span>`;
 
     const message = document.getElementById("message");
     message.style.display = "block";
