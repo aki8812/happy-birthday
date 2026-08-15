@@ -8,8 +8,10 @@
     body {
       margin: 0;
       background-color: black;
+      overflow: hidden;
     }
     video {
+      display: block;
       width: 100%;
       height: 100vh;
       object-fit: cover;
@@ -30,6 +32,13 @@
 </head>
 <body>
   <button id="home-btn" onclick="location.href='index.html'">首頁</button>
-  <video src="assets/video.mp4" autoplay onended="location.href='index.html'"></video>
+  <video id="rick-video" src="assets/video.mp4" autoplay playsinline onended="location.href='index.html'"></video>
+
+  <script>
+    const video = document.getElementById("rick-video");
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay();
+    document.addEventListener("click", tryPlay, { once: true });
+  </script>
 </body>
 </html>
